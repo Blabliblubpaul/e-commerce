@@ -1,7 +1,8 @@
-export default function ItemDescriptionViewer() {
+export default function ItemDescriptionViewer({description}) {
     return (
         <div id="itemDescriptionViewer">
-            <h1>Description. Very long.</h1>
+            <h1>Product Description:</h1>
+            <p id="itemDescription">{description}</p>
         </div>
     )
 }

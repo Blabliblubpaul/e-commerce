@@ -18,14 +18,16 @@ export default function InspectItemPage() {
         <div id="inspectItemPage">
             <div id="itemViewer">
                 <ItemImageViewer img={item.img}/>
-                <ItemSummaryViewer name={item.name} props={item.props_} />
-                <ItemBuyPanel props={item.props_}/>
+                <ItemSummaryViewer name={item.name} props={item.props} />
+                <ItemBuyPanel item={item}/>
             </div>
+            <vr className="viewSeperator" />
             <div id="description">
-                <ItemDescriptionViewer />
+                <ItemDescriptionViewer description={item.props.description} />
             </div>
+            <vr className="viewSeperator" />
             <div id="reviews">
-                <ItemReviewViewer />
+                <ItemReviewViewer reviews={item.props.reviews} />
             </div>
         </div>
     )

@@ -4,27 +4,18 @@ import { isStringEmpty } from "../../../../app/utils"
 
 import Item from "./Item"
 
-export default function ShopView({query}) {
-    let title
-
-    if (isStringEmpty(query)) {
-        title = "Products"
-    }
-    else {
-        title = "Search results for \"" + query + "\""
-    }
-
+export default function() {
     return (
-        <div className="shopView">
-            <h1 className="shopView">{title}</h1>
+        <div id="OptionsPage">
+            <h1>Your Cart:</h1>
             <div id="items">
-                <CreateShopItems query={query} />
+                <CreateCartItems/>
             </div>
         </div>
     )
 }
 
-function CreateShopItems({query}) {
+function CreateCartItems({query}) {
     if (!isStringEmpty(query)) {
         let searchedItems = items.filter((x) => x.name.toLowerCase().includes(query.toLowerCase()))
         

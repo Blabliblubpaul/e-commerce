@@ -22,6 +22,22 @@ body {
     padding-right: 1.0rem;
 }
 
+.headerNavButton {
+    background: none;
+    border: none;
+    font-size: xx-large;
+    margin-right: 1rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.headerNavButton:hover {
+    outline: rgb(117, 117, 117) 2px solid;
+    cursor: pointer;
+}
+
 #searchComponent {
     display: flex;
     align-items: flex-start;
@@ -29,15 +45,47 @@ body {
     width: 100%;
 }
 
+#searchComponent:focus-within {     /* Create outline for searchbar, including the button */
+    outline-color: #C7511F;
+    outline-style: solid;
+    outline-width: 0.15rem;
+    border-top-left-radius: 20px;       /* Change the border to match the border shape of searchBar and button */
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 .headerSearchbar {
-    width: 100%;
-    height: 1.5rem;
+    width: 85%;
+    height: 1.9rem;
+    border-radius: 0;
+    border-style: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: large;
+    padding-left: 1rem;
+}
+
+.headerSearchbar:focus {
+    outline: none;      /* Disable standart outline -> outline is created by parent */
 }
 
 #searchButton {
-    height: 2rem;
-    border-radius: 10%;
-    margin-top: -0.05rem;       /* To fix a very small offset to the bottom in relation to the search bar */
+    width: 15%;
+    height: 2.02rem;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-style: none;
+    background: rgb(226, 226, 226);
+}
+
+#searchButton:hover {
+    background: rgb(205, 205, 205);
+    cursor: pointer;
+}
+
+#searchButton:active {
+    background: rgb(184, 184, 184);
 }
 
 .headermiddle {
@@ -150,52 +198,45 @@ body {
 
 .shopItem-header:hover {
     color: #C7511F;
+    text-decoration: underline;
 }
 
-.shopItem-Rating::before {
-    content: "Rating: ";
-}
-
-.shopItem-Price {
+.shopItemPrice {
     font-size: larger;
     font-weight: bold;
 }
 
-.shopItem-Price::after {
+.shopItemPrice::after {
     content: "$";
 }
 
 #inspectItemPage {
-    display: grid;
-    grid-template-rows: [top] 50rem auto 30rem [bottom];
-    grid-template-areas:
-    "itemViewer",
-    "descriptionViewer",
-    "reviewViewer";
+    display: flex;
+    flex-direction: column;
 }
 
 #itemViewer {
-    display: grid;
-    grid-template-columns: [left] 30rem auto 15rem [right];
-    grid-template-areas:
-    "imageViewer summaryViewer buyPanel";
+    display: flex;
 }
 
 #itemImageViewer {
-    grid-area: imageViewer;
     display: flex;
-    width: 100%;
-    height: 40rem;
-    background: red;
+    width: 40%;
+    height: 30rem;
     align-items: flex-start;
     justify-content: center;
 }
 
 #activeImage {
     background: rgb(236, 236, 236);
-    height: 20rem;
-    width: 20rem;
+    height: auto;
+    width: 65%;
     margin-top: 5rem;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    outline: black 1px solid;
 }
 
 #image {
@@ -203,9 +244,18 @@ body {
 }
 
 #itemSummaryViewer {
-    grid-area: summaryViewer;
+    width: 35%;
     padding-left: 1rem;
-    background: green;
+    margin-right: 1rem;
+    margin-top: 3rem;
+    background: rgba(218, 218, 218, 0.3);
+    height: fit-content;
+    padding-bottom: 2rem;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    outline: rgba(218, 218, 218, 0.5) 2px solid;
 }
 
 #itemName {
@@ -215,30 +265,170 @@ body {
 }
 
 #itemRating {
-    padding-left: 1.2rem;
+    margin-left: 1.2rem;
     margin-top: 0.3rem;
 }
 
 #itemPrice {
     font-size: larger;
     font-weight: bold;
+    margin-left: 1.2rem;
+}
+
+#itemSpecs {
+    list-style: none;
+    margin-left: 1.2rem;
+    padding: 0;
+}
+
+.itemSpec {
+    display: flex;
+    padding-bottom: 0.25rem;
+    margin: 0;
+}
+
+.itemSpecKey {
+    display: inline-block;
+    font-weight: bold;
+    max-width: 50%;
+    text-wrap: wrap;
+    word-break: keep-all;
+    overflow: hidden;
+}
+
+.itemSpecValue {
+    display: inline-block;
+    text-wrap: wrap;
+    margin-left: 5%;
+    word-break: keep-all;
+    overflow: hidden;
+}
+
+#itemSummary {
+    font-size: large;
 }
 
 #itemBuyPanel {
-    grid-area: buyPanel;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
     margin-top: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0.5rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     height: 30rem;
-    background: blue;
+    outline: black 2px solid;
+    background: rgb(215, 215, 215);
+}
+
+#itemBuyPanelHeader {
+    margin-left: 10%;
+}
+
+#itemAmountInput {
+    display: inline;
+}
+
+#itemAmountInputText {
+    display: inline-block;
+    width: fit-content;
+    padding-right: 0.5rem;
+}
+
+#itemAmountInputField {
+    width: 5rem;
+}
+
+#itemAmountInputField:hover {
+    cursor: pointer;
+}
+
+.buyPanelButton {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    height: 1.75rem;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-style: none;
+    margin-bottom: 0.75rem;
+}
+
+.buyPanelButton:hover {
+    background: rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+.buyPanelButton:active {
+    background: rgb(158, 158, 158);
+}
+
+.viewSeperator {
+    background: rgb(190, 190, 190);
+    height: 1px;
+    margin: 2rem;
 }
 
 #itemDescriptionViewer {
-    grid-area: descriptionViewer;
-    background: orange;
-    height: 40rem;
+    background: rgb(245, 245, 245);
+    height: fit-content;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#itemDescription {
+    font-size: larger;
+    padding-left: 1rem;
 }
 
 #itemReviewViewer {
-    grid-area: reviewViewer;
-    background: purple;
-    height: 40rem;
+    background: rgb(245, 245, 245);
+    height: fit-content;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.itemReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    outline: double 4px black;
+    width: 60%;
+}
+
+#itemReviewHeader {
+    margin: 0.2rem;
+    text-decoration: underline;
+}
+
+#itemReviewRating {
+    margin: 0;
+    margin-left: 0.2rem;
+}
+
+#itemReviewDescription {
+    margin-left: 0.2rem;
+    font-size: large;
+}
+
+#placeholder {
+    height: 1rem;
 }
