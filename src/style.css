@@ -1,0 +1,244 @@
+body {
+    margin: 0;
+}
+
+#container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: [top] 5rem auto;
+    grid-template-areas:
+    "head"
+    "body";
+}
+
+#header {
+    grid-area: head;
+    background: #555;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
+}
+
+#searchComponent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.headerSearchbar {
+    width: 100%;
+    height: 1.5rem;
+}
+
+#searchButton {
+    height: 2rem;
+    border-radius: 10%;
+    margin-top: -0.05rem;       /* To fix a very small offset to the bottom in relation to the search bar */
+}
+
+.headermiddle {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainbody {
+    grid-area: body;
+}
+
+#shoppingPage {
+    display: grid;
+    grid-template-columns: [left] 25vh auto;
+    grid-template-areas:
+    "filter view";
+    padding-top: 0.5rem;
+}
+
+.filterOptions {
+    grid-area: filter;
+    background: red;
+    height: 50vh;
+    padding-left: 0.75rem;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+}
+
+.shopView {
+    grid-area: view;
+    background: white;
+    padding-left: 0.75rem;
+}
+
+#items {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.shopItem {
+    display: grid;
+    padding: 0.1rem;
+    height: 12rem;
+    width: 99.2%;     /* To keep the right outline part inside the window */
+    border: black;
+    outline: 1px solid gray;
+    outline-offset: -2px;
+    grid-template-columns: [left] 15rem auto;
+    grid-template-areas:
+    "image props";
+}
+
+.shopItem:hover {
+    outline: 2px solid #c7621fd2;
+    outline-offset: -2px;
+    z-index: 1;
+}
+
+.shopItem-ImgSpace {
+    grid-area: image;
+    height: inherit;
+    display: flex;
+    width: 100%;
+    background: rgb(236, 236, 236);
+    align-items: center;
+    justify-content: center;
+}
+
+.shopItem-Img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+
+.shopItem-itemProps {
+    grid-area: props;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+    height: inherit;
+    padding-top: 0.2rem;
+    padding-left: 1rem;
+    align-items: flex-start; 
+    justify-content: flex-start;
+}
+
+.shopItem-Prop {
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding-top: 0.2rem;
+}
+
+.shopItem-header {
+    margin: 0;
+    font-size: large;
+    color: black;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.shopItem-header:hover {
+    color: #C7511F;
+}
+
+.shopItem-Rating::before {
+    content: "Rating: ";
+}
+
+.shopItem-Price {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.shopItem-Price::after {
+    content: "$";
+}
+
+#inspectItemPage {
+    display: grid;
+    grid-template-rows: [top] 50rem auto 30rem [bottom];
+    grid-template-areas:
+    "itemViewer",
+    "descriptionViewer",
+    "reviewViewer";
+}
+
+#itemViewer {
+    display: grid;
+    grid-template-columns: [left] 30rem auto 15rem [right];
+    grid-template-areas:
+    "imageViewer summaryViewer buyPanel";
+}
+
+#itemImageViewer {
+    grid-area: imageViewer;
+    display: flex;
+    width: 100%;
+    height: 40rem;
+    background: red;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#activeImage {
+    background: rgb(236, 236, 236);
+    height: 20rem;
+    width: 20rem;
+    margin-top: 5rem;
+}
+
+#image {
+    width: 100%;
+}
+
+#itemSummaryViewer {
+    grid-area: summaryViewer;
+    padding-left: 1rem;
+    background: green;
+}
+
+#itemName {
+    text-decoration: underline;
+    margin: 0;
+    margin-top: 2rem;
+}
+
+#itemRating {
+    padding-left: 1.2rem;
+    margin-top: 0.3rem;
+}
+
+#itemPrice {
+    font-size: larger;
+    font-weight: bold;
+}
+
+#itemBuyPanel {
+    grid-area: buyPanel;
+    margin-top: 5rem;
+    height: 30rem;
+    background: blue;
+}
+
+#itemDescriptionViewer {
+    grid-area: descriptionViewer;
+    background: orange;
+    height: 40rem;
+}
+
+#itemReviewViewer {
+    grid-area: reviewViewer;
+    background: purple;
+    height: 40rem;
+}
