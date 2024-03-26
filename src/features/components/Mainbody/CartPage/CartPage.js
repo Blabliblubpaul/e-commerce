@@ -1,27 +1,25 @@
-import { items } from "../../../Items"
+import { useSelector } from "react-redux"
 
-import { isStringEmpty } from "../../../../app/utils"
 
-import Item from "./Item"
+import CartItem from "./CartItem"
+import CartBuyPanel from "./CartBuyPanel"
 
 export default function() {
+    let items = useSelector(state => state.cart.items)
+
     return (
-        <div id="OptionsPage">
+        <div>
             <h1>Your Cart:</h1>
-            <div id="items">
-                <CreateCartItems/>
+            <div id="CartPage">
+                <div id="items">
+                    <CreateCartItems items={items}/>
+                </div>
+                <CartBuyPanel/>
             </div>
         </div>
     )
 }
 
-function CreateCartItems({query}) {
-    if (!isStringEmpty(query)) {
-        let searchedItems = items.filter((x) => x.name.toLowerCase().includes(query.toLowerCase()))
-        
-        return searchedItems.map((x, index) => <Item key={index} id={x.id} name={x.name} img={x.img} props={x.props} />) 
-    }
-    else {
-        return items.map((x, index) => <Item key={index} id={x.id} name={x.name} img={x.img} props={x.props} />)
-    }
+function CreateCartItems({items}) {
+    return items.map((x, index) => <CartItem key={index} id={x.id} quantity={x.quantity} />)
 }

@@ -1,7 +1,14 @@
-import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { insert, remove } from "../../../slices/cartSlice"
 
-export default function ItemBuyPanel({item}) {
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
+export default function ItemBuyPanel({item, setShowCartMessage, setAddedItem}) {
     const [quantity, setQuantity] = useState(1)
+    const isInCart = useSelector(state => state.cart.items.some((x) => x.id == item.id))
+
+    const navigate = useNavigate()
 
     function setAndBeautifyQuantity(target) {
         setQuantity(target.value)
@@ -16,10 +23,27 @@ export default function ItemBuyPanel({item}) {
                     {CreateAmountValues(item)}
                 </select>
             </div>
-            <button className="buyPanelButton">Add to Cart</button>
-            <button className="buyPanelButton">Buy Now</button>
+            <CreateCartButton isInCart={isInCart} item={item} quantity={quantity} setShowCartMessage={setShowCartMessage} setAddedItem={setAddedItem}/>
+            <button className="buyPanelButton" onClick={() => navigate("/checkout?item=" + item.id + "&qty=" + quantity)}>Buy Now</button>
         </div>
     )
+}
+
+function CreateCartButton({isInCart, item, quantity, setShowCartMessage, setAddedItem}) {
+    const dispatch = useDispatch()
+
+    function addToCart() {
+        dispatch(insert({id: item.id, quantity: quantity}))
+        setAddedItem(item.name)
+        setShowCartMessage(true)
+    }
+
+    if (!isInCart) {
+        return <button className="buyPanelButton" onClick={() => addToCart()}>Add to Cart</button>
+    }
+    else {
+        return <button className="buyPanelButton" onClick={() => dispatch(remove(item.id))}>Remove from Cart</button>
+    }
 }
 
 function CreateAmountValues(item) {

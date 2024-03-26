@@ -5,6 +5,7 @@ import ShoppingPage from "./features/components/Mainbody/ShoppingPage/ShoppingPa
 import InspectItemPage from "./features/components/Mainbody/InspectItemPage/InspectItemPage"
 import CartPage from "./features/components/Mainbody/CartPage/CartPage"
 import OptionsPage from "./features/components/Mainbody/OptionsPage/OptionsPage"
+import CheckoutPage from "./features/components/Mainbody/CheckoutPage/CheckoutPage"
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
             <Route index element={<ShoppingPage />}/>
             <Route path="/inspect" Component={InspectItemPage}/>
             <Route path="/cart" Component={CartPage}/>
+            <Route path="/checkout" Component={CheckoutPage}/>
             <Route path="/options" Component={OptionsPage}/>
             <Route path="*" element={<h1>404!</h1>}/>
         </Route>

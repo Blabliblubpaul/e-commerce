@@ -3,23 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
     name: "cart",
     initialState: {
-        value: []
+        items: []
     },
     reducers: {
         insert: (state, action) => {
-            state.value.push(action.payload)
+            state.items.push(action.payload)
         },
         remove: (state, action) => {
-            let x = state.indexOf(action.payload)
-            state.value.delete(x)
+            let x = state.items.findIndex((x) => x.id == action.payload)
+            state.items.splice(x, 1)
         },
-        removeById: (state, action) => {
-            let x = state.value.findIndex((x) => {x.id == action.payload.id})
-            state.value.delete(x)
+        clear: (state, action) => {
+            state.items = []
         }
     }
 })
 
-export const {insert, remove, removeById} = cartSlice.actions
+export const {insert, remove, clear} = cartSlice.actions
 
 export default cartSlice.reducer
