@@ -16,7 +16,7 @@ export const items = [
                 {key: "SSD", value: "1TB"},
                 {key: "USB_Ports", value: "3"}
             ],
-            summary: "Suitable for non-reousrce intnsive office work, like Microsoft Word or Excel tasks.",
+            summary: "Suitable for non-resource intensive office work, like Microsoft Word or Excel tasks.",
             description: "Like the summary, but in longer and with whole sentences.",
             reviews: [
                 {
@@ -157,7 +157,8 @@ export const items = [
                 {key: "Cores", value: "64"},
                 {key: "RAM", value: "256GB DDR6"},
                 {key: "SSD", value: "20TB"},
-                {key: "USB-Ports", value: "8"}
+                {key: "USB-Ports", value: "8"},
+                {key: "Watercooling", value: "yes"}
             ],
             summary: "The ultimate gaming pc, fitted with the best components available. Augmented with special extra LED bars to further enhance performance.",
             description: "Like the summary, but in longer and with whole sentences.",
@@ -183,114 +184,104 @@ export const items = [
     },
     {
         id: 5,
-        name: "PC6",
-        max_buy: 4,
-        in_stock: 20,
+        name: "Gaming PC 530Kj",
+        max_buy: 2,
+        in_stock: 232,
         img: "https://pngimg.com/d/computer_pc_PNG17486.png",
         props: {
-            rating: 5,
-            short_description: "This is a very nice PC.",
-            price: 1500,
+            rating: 4.3,
+            short_description: "A gaming pc for experienced players, well-suited to play modern games.",
+            price: 2300.85,
             specs: [
-                {key: "CPU", value: "A good one"},
-                {key: "Cores", value: "16"},
+                {key: "CPU", value: "Intel Core i8"},
+                {key: "Cores", value: "12"},
                 {key: "RAM", value: "64GB DDR4"},
-                {key: "SSD", value: "2TB"}
+                {key: "SSD", value: "4TB"},
+                {key: "Watercooling", value: "yes"}
             ],
-            summary: "This is a very good PC. Buy it. Suitable for everything.",
+            summary: "A well-performng pc, able to play most modern games. Has watercooling and 4TB SDD hard-drive capacity.",
             description: "Like the summary, but in longer and with whole sentences.",
             reviews: [
                 {
                     author: "Anonymous",
-                    rating: 5,
-                    description: "I was very satisfied with this product."
+                    rating: 4,
+                    description: "It works good with most games."
                 },
                 {
                     author: "Anonymous",
                     rating: 5,
-                    description: "I was very satisfied with this product."
+                    description: "The pc is worth its price."
                 },
                 ,
                 {
                     author: "Anonymous",
-                    rating: 5,
-                    description: "I was very satisfied with this product."
+                    rating: 4,
+                    description: "Good."
                 }
             ]
         }
     },
     {
         id: 6,
-        name: "PC7",
-        max_buy: 4,
-        in_stock: 20,
+        name: "Gaming PC 910Kj",
+        max_buy: 1,
+        in_stock: 346,
         img: "https://pngimg.com/d/computer_pc_PNG17486.png",
         props: {
-            rating: 5,
-            short_description: "This is a very nice PC.",
-            price: 1500,
+            rating: 4,
+            short_description: "A gaming pc for experienced players, well-suited to play modern games.",
+            price: 2634.89,
             specs: [
-                {key: "CPU", value: "A good one"},
-                {key: "Cores", value: "16"},
-                {key: "RAM", value: "64GB DDR4"},
-                {key: "SSD", value: "2TB"}
+                {key: "CPU", value: "Intel Core i8"},
+                {key: "Cores", value: "12"},
+                {key: "RAM", value: "128GB DDR4"},
+                {key: "SSD", value: "5TB"},
+                {key: "Watercooling", value: "yes"}
             ],
-            summary: "This is a very good PC. Buy it. Suitable for everything.",
+            summary: "An advanced model of the 530Kj, featuring double as much RAM and a bigger hard-drive with 5TB capacity.",
             description: "Like the summary, but in longer and with whole sentences.",
             reviews: [
                 {
                     author: "Anonymous",
-                    rating: 5,
-                    description: "I was very satisfied with this product."
+                    rating: 3,
+                    description: "Comparing this with the price of its predecessor, this is a complete ripoff. Works well otherwise."
                 },
                 {
                     author: "Anonymous",
                     rating: 5,
-                    description: "I was very satisfied with this product."
-                },
-                ,
-                {
-                    author: "Anonymous",
-                    rating: 5,
-                    description: "I was very satisfied with this product."
+                    description: "The 128GB RAM allow you to play almost every game. I'd recommend this pc for anyone who regularly plays modern games."
                 }
             ]
         }
     },
     {
         id: 7,
-        name: "PC8",
-        max_buy: 4,
+        name: "Office PC 100ih",
+        max_buy: 4.5,
         in_stock: 20,
         img: "https://pngimg.com/d/computer_pc_PNG17486.png",
         props: {
             rating: 5,
-            short_description: "This is a very nice PC.",
-            price: 1500,
+            short_description: "A low-tier office pc, but still more than capable for word or excel tasks.",
+            price: 230.99,
             specs: [
-                {key: "CPU", value: "A good one"},
-                {key: "Cores", value: "16"},
-                {key: "RAM", value: "64GB DDR4"},
-                {key: "SSD", value: "2TB"}
+                {key: "CPU", value: "Intel Core i4"},
+                {key: "Cores", value: "1"},
+                {key: "RAM", value: "8GB DDR4"},
+                {key: "HDD", value: "1TB"}
             ],
-            summary: "This is a very good PC. Buy it. Suitable for everything.",
+            summary: "A cheap pc, good for small office tasks.",
             description: "Like the summary, but in longer and with whole sentences.",
             reviews: [
                 {
                     author: "Anonymous",
-                    rating: 5,
-                    description: "I was very satisfied with this product."
+                    rating: 4,
+                    description: "Good for small office tasks, and relatively cheap. Don't try to play games on it, though."
                 },
                 {
                     author: "Anonymous",
                     rating: 5,
-                    description: "I was very satisfied with this product."
-                },
-                ,
-                {
-                    author: "Anonymous",
-                    rating: 5,
-                    description: "I was very satisfied with this product."
+                    description: "For me, as i only use it in the office, this is the perfect pc."
                 }
             ]
         }
