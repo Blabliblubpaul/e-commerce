@@ -1,10 +1,13 @@
 body {
     margin: 0;
+
+    background: var(--site-background-color);
 }
 
 #container {
-    display: grid;
     height: 100%;
+
+    display: grid;
     grid-template-rows: [top] 5rem auto;
     grid-template-areas:
     "head"
@@ -13,57 +16,72 @@ body {
 
 #header {
     grid-area: head;
-    background: #555;
+
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
+
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: baseline;
-    padding-left: 1.0rem;
-    padding-right: 1.0rem;
+
+    background: var(--header-background-color);
+    color: var(--text-color);
 }
 
 .headerNavButton {
-    background: none;
-    border: none;
-    font-size: xx-large;
     margin-right: 1rem;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    border: none;
+
+    font-size: xx-large;
+
+    background: none;
+    color: var(--text-color);
 }
 
 .headerNavButton:hover {
-    outline: rgb(117, 117, 117) 2px solid;
     cursor: pointer;
+
+    outline: 2px solid var(--header-navbutton-outline-color);
 }
 
 #searchComponent {
+    width: 100%;
+
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    width: 100%;
 }
 
 #searchComponent:focus-within {     /* Create outline for searchbar, including the button */
-    outline-color: #C7511F;
-    outline-style: solid;
-    outline-width: 0.15rem;
     border-top-left-radius: 20px;       /* Change the border to match the border shape of searchBar and button */
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+
+    outline: 0.15rem solid var(--focus-color-2);
 }
 
 .headerSearchbar {
     width: 85%;
     height: 1.9rem;
+
+    padding-left: 1rem;
+
     border-radius: 0;
-    border-style: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    border-style: none;
+
     font-size: large;
-    padding-left: 1rem;
+
+    color: var(--text-color);
+    background: var(--searchbar-background-color);
 }
 
 .headerSearchbar:focus {
@@ -73,23 +91,28 @@ body {
 #searchButton {
     width: 15%;
     height: 2.02rem;
+
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-style: none;
-    background: rgb(226, 226, 226);
+
+    color: var(--text-color);
+    background: var(--button-color-1);
 }
 
 #searchButton:hover {
-    background: rgb(205, 205, 205);
     cursor: pointer;
+
+    background: var(--button-color-focus-1);
 }
 
 #searchButton:active {
-    background: rgb(184, 184, 184);
+    background: var(--button-color-active-1);
 }
 
 .headermiddle {
     width: 50%;
+
     margin-left: auto;
     margin-right: auto;
 }
@@ -99,65 +122,101 @@ body {
 }
 
 #shoppingPage {
+    padding-top: 0.5rem;
+    
     display: grid;
     grid-template-columns: [left] 25vh auto;
     grid-template-areas:
     "filter view";
-    padding-top: 0.5rem;
 }
 
 .filterOptions {
     grid-area: filter;
-    background: red;
+
     height: 50vh;
+
     padding-left: 0.75rem;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 2px solid var(--panel-background-border-1);
+
+    color: var(--text-color);
+    background: var(--panel-background-1);
 }
 
 #filters {
     display: flex;
     flex-direction: column;
     align-items: self-start;
+
+    color: var(--text-color);
+}
+
+.filterHeader {
+    margin: 0;
+    margin-bottom: 0.35rem;
+}
+
+.filterInput {
+    min-width: 2.5rem;
+
+    margin-bottom: 0.75rem;
+
+    color: var(--text-color);
+    background-color: var(--dropdown-background-color);
 }
 
 .shopView {
     grid-area: view;
-    background: white;
+
     padding-left: 0.75rem;
+
+    color: var(--text-color);
+    background: var(--site-background-color);
 }
 
 #items {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .shopItem {
-    display: grid;
-    padding: 0.1rem;
     height: 12rem;
     width: 99.2%;     /* To keep the right outline part inside the window */
-    border: black;
-    outline: 1px solid gray;
-    outline-offset: -2px;
+
+    margin-bottom: 0.1rem;
+
+    display: grid;
     grid-template-columns: [left] 15rem auto;
     grid-template-areas:
     "image props";
+
+    outline: 1px solid var(--panel-background-border-1);
+    outline-offset: -1px;
+
+    background: var(--panel-background-2);
 }
 
 .shopItem:hover {
-    outline: 2px solid #c7621fd2;
+    outline: 2px solid var(--focus-color-2);
     outline-offset: -2px;
+
     z-index: 1;
 }
 
 .shopItem-ImgSpace {
     grid-area: image;
+
     height: inherit;
-    display: flex;
     width: 100%;
-    background: rgb(236, 236, 236);
+
+    display: flex;
     align-items: center;
     justify-content: center;
+
+    background: var(--image-background-color);
 }
 
 .shopItem-Img {
@@ -168,13 +227,17 @@ body {
 
 .shopItem-itemProps {
     grid-area: props;
+
+    height: inherit;
+
+    margin: 0;
+
+    padding-top: 0.2rem;
+    padding-left: 1rem;
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    margin: 0;
-    height: inherit;
-    padding-top: 0.2rem;
-    padding-left: 1rem;
     align-items: flex-start; 
     justify-content: flex-start;
 }
@@ -182,23 +245,27 @@ body {
 .shopItem-Prop {
     width: 100%;
     height: fit-content;
+
     margin: 0;
     padding-top: 0.2rem;
 }
 
 .shopItem-header {
     margin: 0;
+
     font-size: large;
-    color: black;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+
+    color: var(--text-color);
 }
 
 .shopItem-header:hover {
-    color: #C7511F;
     text-decoration: underline;
+
+    color: var(--focus-color);
 }
 
 .shopItemRating {
@@ -212,52 +279,57 @@ body {
 
 #shopItemCartOptions {
     margin: 0;
-    margin-bottom: 0.5rem;
     margin-top: auto;
+    margin-bottom: 0.5rem;
 }
 
 #shopItemCartOptionsHeader {
     margin: 0;
     margin-bottom: 0rem;
+
     font-size: small;
 }
 
 #shopItemCartOptionsButton {
-    font-size: x-small;
     margin-right: 0.25rem;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-style: none;
-    background: rgb(223, 223, 223);
+
+    font-size: x-small;
+
+    color: var(--text-color);
+    background: var(--button-color-2);
 }
 
 #shopItemCartOptionsButton:hover {
     cursor: pointer;
-    background: rgb(208, 208, 208);
+    background: var(--button-color-focus-2);
 }
 
 #shopItemCartOptionsButton:active {
-    background: rgb(189, 189, 189);
+    background: var(--button-color-active-2);
 }
 
 .shopItemPrice {
     margin: 0;
     margin-top: 0.5rem;
+
     font-size: larger;
     font-weight: bold;
-}
-
-.shopItemPrice::after {
-    content: "$";
 }
 
 #inspectItemPage {
     display: flex;
     flex-direction: column;
+
     overflow-y: hidden;
     overflow: hidden;
+
+    color: var(--text-color);
 }
 
 #itemViewer {
@@ -265,23 +337,28 @@ body {
 }
 
 #itemImageViewer {
-    display: flex;
     width: 40%;
     height: 30rem;
+
+    display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
 #activeImage {
-    background: rgb(236, 236, 236);
     height: auto;
     width: 65%;
+
     margin-top: 5rem;
+
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-    outline: black 1px solid;
+
+    outline: 1px solid var(--panel-outline-color-1);
+
+    background: var(--image-background-color);
 }
 
 #image {
@@ -289,62 +366,74 @@ body {
 }
 
 #itemSummaryViewer {
-    width: 35%;
-    padding-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 3rem;
-    background: rgba(218, 218, 218, 0.3);
     height: fit-content;
+    width: 35%;
+
+    margin-top: 3rem;
+    margin-right: 1rem;
     padding-bottom: 2rem;
+    padding-left: 1rem;
+
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-    outline: rgba(218, 218, 218, 0.5) 2px solid;
+    padding-bottom: 2rem;
+
+    outline: 2px solid var(--panel-background-border-2);
+
+    background: var(--panel-background-2);
 }
 
 #itemName {
-    text-decoration: underline;
     margin: 0;
     margin-top: 2rem;
+
+    text-decoration: underline;
 }
 
 #itemRating {
-    margin-left: 1.2rem;
     margin-top: 0.3rem;
+    margin-left: 1.2rem;
 }
 
 #itemPrice {
+    margin-left: 1.2rem;
+
     font-size: larger;
     font-weight: bold;
-    margin-left: 1.2rem;
 }
 
 #itemSpecs {
-    list-style: none;
     margin-left: 1.2rem;
     padding: 0;
+
+    list-style: none;
 }
 
 .itemSpec {
-    display: flex;
-    padding-bottom: 0.25rem;
     margin: 0;
+    padding-bottom: 0.25rem;
+
+    display: flex;
 }
 
 .itemSpecKey {
+    width: 20%;
+
     display: inline-block;
+
     font-weight: bold;
-    max-width: 50%;
     text-wrap: wrap;
     word-break: keep-all;
     overflow: hidden;
 }
 
 .itemSpecValue {
+    margin-left: 5%;
+
     display: inline-block;
     text-wrap: wrap;
-    margin-left: 5%;
     word-break: keep-all;
     overflow: hidden;
 }
@@ -354,20 +443,26 @@ body {
 }
 
 #itemBuyPanel {
+    height: 30rem;
     width: 20%;
-    display: flex;
-    flex-direction: column;
+
     margin-top: 5rem;
-    margin-right: auto;
     margin-left: auto;
+    margin-right: auto;
+
     padding-left: 0.5rem;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 30rem;
-    outline: black 2px solid;
-    background: rgb(215, 215, 215);
+
+    display: flex;
+    flex-direction: column;
+
+    outline: 2px solid var(--panel-outline-color-1);
+
+    background: var(--panel-background-2);
 }
 
 #itemBuyPanelHeader {
@@ -379,13 +474,20 @@ body {
 }
 
 #itemAmountInputText {
-    display: inline-block;
     width: fit-content;
+
+    margin-left: 10%;
     padding-right: 0.5rem;
+
+    display: inline-block;
 }
 
 #itemAmountInputField {
-    width: 5rem;
+    width: 30%;
+    max-width: 5rem;
+
+    color: var(--text-color);
+    background: var(--dropdown-background-color);
 }
 
 #itemAmountInputField:hover {
@@ -393,74 +495,93 @@ body {
 }
 
 .buyPanelButton {
+    height: 1.75rem;
+    width: 85%;
+
+    margin-bottom: 0.75rem;
     margin-left: auto;
     margin-right: auto;
-    width: 85%;
-    height: 1.75rem;
+
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-style: none;
-    margin-bottom: 0.75rem;
+
+    color: var(--text-color);
+    background: var(--button-color-1);
 }
 
 .buyPanelButton:hover {
-    background: rgb(184, 184, 184);
     cursor: pointer;
+    
+    background: var(--button-color-focus-1);
 }
 
 .buyPanelButton:active {
-    background: rgb(158, 158, 158);
+    background: var(--button-color-active-1);
 }
 
 .viewSeperator {
-    background: rgb(190, 190, 190);
     height: 1px;
+    
     margin: 2rem;
+
+    background: var(--seperator-color-1);
 }
 
 #itemDescriptionViewer {
-    background: rgb(245, 245, 245);
     height: fit-content;
-    padding: 1rem;
+
     margin-left: 1rem;
     margin-right: 1rem;
+    padding: 1rem;
+    
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+
+    background: var(--panel-background-2);
 }
 
 #itemDescription {
-    font-size: larger;
     padding-left: 1rem;
+
+    font-size: larger;
 }
 
 #itemReviewViewer {
-    background: rgb(245, 245, 245);
     height: fit-content;
-    padding: 1rem;
+
     margin-left: 1rem;
     margin-right: 1rem;
+    padding: 1rem;
+
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+
+    background: var(--panel-background-2);
 }
 
 .itemReview {
+    width: 60%;
+
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
-    outline: double 4px black;
-    width: 60%;
+
+    outline: 4px double var(--panel-outline-color-1);
 }
 
 #itemReviewHeader {
     margin: 0.2rem;
+
     text-decoration: underline;
 }
 
@@ -471,6 +592,7 @@ body {
 
 #itemReviewDescription {
     margin-left: 0.2rem;
+
     font-size: large;
 }
 
@@ -479,38 +601,47 @@ body {
 }
 
 #itemAddedToCartPanelBackground {
-    position: absolute;
     height: 100%;
     width: 100%;
-    background: rgba(178, 178, 178, 0.472);
+    
+    position: absolute;
+
+    background: var(--overlay-color);
 }
 
 #itemAddedToCartPanel {
-    background: rgb(188, 188, 188);
     width: 30rem;
+
     margin: auto;
     margin-top: 8rem;
     padding: 0;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: rgb(114, 114, 114) solid 2px;
+
     display: flex;
     flex-direction: column;
+
+    border: 2px solid var(--panel-background-border-3);
+
+    color: var(--text-color);
+    background: var(--panel-background-3);
 }
 
 #cartPanelHeader {
+    width: fit-content;
+
+    margin-top: 0.5rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0.5rem;
-    width: fit-content;
 }
 
 #cartPanelNavButtons {
+    margin-top: 0.5rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0.5rem;
 }
 
 #cartPanelCartButton {
@@ -524,31 +655,37 @@ body {
 .cartPanelButton {
     height: 2.25rem;
     width: 10rem;
-    font-size: large;
-    font-weight: bold;
-    background: rgb(160, 160, 160);
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border: none;
+
+    font-size: large;
+    font-weight: bold;
+
+    color: var(--text-color);
+    background: var(--button-color-3);
 }
 
 .cartPanelButton:hover {
     cursor: pointer;
-    background: rgb(143, 143, 143);
+
+    background: var(--button-color-focus-3);
 }
 
 .cartPanelButton:active {
-    background: rgb(129, 129, 129);
+    background: var(--button-color-active-3);
 }
 
 #cartPanelCloseButton {
+    width: 8rem;
+
     margin-top: 3rem;
+    margin-bottom: 0.5rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0.5rem;
-    width: 8rem;
 }
 
 #CartPage {
@@ -556,33 +693,47 @@ body {
     grid-template-columns: [left] 75% auto;
     grid-template-areas:
     "items buyPanel";
+
+    color: var(--text-color);
+}
+
+#cartPageHeader {
+    color: var(--text-color);
 }
 
 .cartItem {
-    display: flex;
-    margin-left: 0.5rem;
-    padding: 0.1rem;
     height: 12rem;
-    width: 100%;     /* To keep the right outline part inside the window */
-    border: black;
-    outline: 1px solid gray;
-    outline-offset: -2px;
+    width: 100%;
+
+    margin-bottom: 0.1rem;
+    margin-left: 0.5rem;
+
+    display: flex;
+
+    outline: 1px solid var(--panel-background-border-1);
+    outline-offset: -1px;
+
+    background: var(--panel-background-2);
 }
 
 .cartItem:hover {
-    outline: 2px solid #c7621fd2;
+    outline: 2px solid var(--focus-color-2);
     outline-offset: -2px;
+
     z-index: 1;
 }
 
 .cartItemImgSpace {
     height: 100%;
-    display: flex;
     width: 15rem;
+
     max-width: 15rem;
-    background: rgb(236, 236, 236);
+
+    display: flex;
     align-items: center;
     justify-content: center;
+
+    background: var(--image-background-color);
 }
 
 .cartItemImg {
@@ -592,31 +743,35 @@ body {
 }
 
 #cartItemProps {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
     height: inherit;
     margin-top: 0.2rem;
     margin-left: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-items: flex-start; 
     justify-content: flex-start;
 }
 
 .cartItemProp {
-    width: 100%;
     height: fit-content;
+    width: 100%;
+
     margin: 0;
     padding-top: 0.2rem;
 }
 
 .cartItemHeader {
     margin: 0;
+
     font-size: large;
-    color: black;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+
+    color: var(--text-color);
 }
 
 #cartItemPrice {
@@ -624,47 +779,59 @@ body {
 }
 
 #cartItemRemoveButton {
-    margin-bottom: 0.5rem;
-    width: 8rem;
     height: 2rem;
-    background: rgb(212, 212, 212);
-    font-size: smaller;
+    width: 8rem;
+
+    margin-bottom: 0.5rem;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-style: none;
+
+    font-size: smaller;
+
+    color: var(--text-color);
+    background: var(--button-color-2);
 }
 
 #cartItemRemoveButton:hover {
     cursor: pointer;
-    background: rgb(188, 188, 188);
+
+    background: var(--button-color-focus-2);
 }
 
 #cartItemRemoveButton:active {
-    background: rgb(161, 161, 161);
+    background: var(--button-color-active-2);
 }
 
 .cartItemHeader:hover {
-    color: #C7511F;
     text-decoration: underline;
+
+    color: var(--focus-color);
 }
 
 #cartBuyPanel {
+    height: 20rem;
     width: 70%;
-    display: flex;
+
     position:relative;
-    flex-direction: column;
-    margin-right: 2rem;
     margin-left: auto;
+    margin-right: 2rem;
     padding-left: 0.5rem;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 20rem;
-    outline: black 2px solid;
-    background: rgb(215, 215, 215);
+
+    display: flex;
+    flex-direction: column;
+
+    outline: 2px solid var(--panel-outline-color-1);
+
+    background: var(--panel-background-2);
 }
 
 #cartBuyPanelHeader {
@@ -672,106 +839,289 @@ body {
 }
 
 .buyPanelButton {
+    height: 1.75rem;
+    width: 85%;
+
+    margin-bottom: 0.75rem;
     margin-left: auto;
     margin-right: auto;
-    width: 85%;
-    height: 1.75rem;
+
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-style: none;
-    margin-bottom: 0.75rem;
 }
 
 #checkoutPageItemsHeader {
+    width: 50%;
+
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+
+    color: var(--text-color);
 }
 
 #checkoutPageItems {
-    display: flex;
+    width: 50%;
+    min-height: 10rem;
+
     margin-left: auto;
     margin-right: auto;
-    flex-direction: column;
-    background: lightgray;
     padding: 0.5rem;
+
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-    width: 50%;
-    min-height: 10rem;
+
+    display: flex;
+    flex-direction: column;
+
+    color: var(--text-color);
+    background: var(--panel-background-3);
 }
 
 .checkoutPageItem {
-    background: gray;
+    width: 90%;
+
+    padding: 0.5rem;
+    margin-bottom: 0.35rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0.35rem;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: black 1px solid;
-    padding: 0.5rem;
-    width: 90%;
+
+    border: 1px solid var(--panel-outline-color-1);
+
+    background: var(--panel-background-4);
 }
 
 #checkoutPageItemHeader {
-    font-size: large;
     margin: 0;
+
+    font-size: large;
 }
 
 #checkoutPageItemQuantity {
-    font-size: small;
     margin: 0;
     margin-top: 0.25rem;
+
+    font-size: small;
 }
 
 #checkoutPageItemPrice {
-    font-size: medium;
     margin: 0;
     margin-bottom: 0.5rem;
+
+    font-size: medium;
 }
 
 #checkoutPageRemoveItemButton {
-    font-size: x-small;
     margin: 0;
-    background: rgb(185, 185, 185);
+
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-style: none;
+
+    font-size: x-small;
+
+    color: var(--text-color);
+    background: var(--button-color-4);
 }
 
 #checkoutPageRemoveItemButton:hover {
     cursor: pointer;
-    background: rgb(167, 167, 167);
+
+    background: var(--button-color-focus-4);
 }
 
 #checkoutPageRemoveItemButton:active {
-    background: rgb(151, 151, 151);
+    background: var(--button-color-active-4);
+}
+
+#checkoutPageBuyPanel {
+    width: 50%;
+
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 2px solid var(--panel-background-border-1);
+
+    color: var(--text-color);
+    background: var(--panel-background-1);
+}
+
+#checkoutPageBuyPanelPrice {
+    width: fit-content;
+
+    margin-top: 1rem;
+}
+
+#checkoutPageBuyPanelBuyButton {
+    width: 8rem;
+    
+    margin-bottom: 1rem;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-style: none;
+
+    font-size: x-large;
+    font-weight: bold;
+
+    color: var(--text-color);
+    background: var(--button-color-3);
+}
+
+#checkoutPageBuyPanelBuyButton:hover {
+    cursor: pointer;
+
+    background: var(--button-color-focus-3);
+}
+
+#checkoutPageBuyPanelBuyButton:active {
+    background: var(--button-color-active-3);
 }
 
 .smallSeperator {
     height: 1px;
     width: 100%;
-    background: black;
+
     margin: 0;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+
+    background: var(--seperator-color-2);
 }
 
 @media screen and (max-width: 60rem) {
     .cartItemImgSpace {
-        width: 30%;
         height: auto;
+        width: 30%;
     }
 
     #cartBuyPanel {
         margin-left: 1rem;
     }
+}
+
+:root {
+    /* General */
+    --site-background-color: rgb(228, 228, 228);
+    --text-color: black;
+    --overlay-color: rgba(160, 160, 160, 0.5);
+    --dropdown-background-color: white;
+
+    /* Focus */
+    --focus-color: #C7511F;
+    --focus-color-2: #c7621fd2;
+
+    /* Buttons */
+    --button-color-1: rgb(175, 175, 175);
+    --button-color-2: rgb(195, 195, 195);
+    --button-color-3: rgb(155, 155, 155);
+    --button-color-4: rgb(120, 120, 120);
+
+    --button-color-focus-1: rgb(150, 150, 150);
+    --button-color-focus-2: rgb(175, 175, 175);
+    --button-color-focus-3: rgb(140, 140, 140);
+    --button-color-focus-4: rgb(110, 110, 110);
+
+    --button-color-active-1: rgb(125, 125, 125);
+    --button-color-active-2: rgb(155, 155, 155);
+    --button-color-active-3: rgb(120, 120, 120);
+    --button-color-active-4: rgb(95, 95, 95);
+
+    /* Panels */
+    --panel-background-1: rgb(170, 170, 170);
+    --panel-background-2: rgb(210, 210, 210);
+    --panel-background-3: rgb(190, 190, 190);
+    --panel-background-4: rgb(140, 140, 140);
+
+    --panel-background-border-1: rgb(130, 130, 130);
+    --panel-background-border-2: rgba(170, 170, 170, 0.7);
+    --panel-background-border-3: rgb(110, 110, 110);
+
+    --panel-outline-color-1: black;
+
+    /* Seperators */
+    --seperator-color-1: rgb(146, 146, 146);
+    --seperator-color-2: black;
+
+    /* Images */
+    --image-background-color: rgb(236, 236, 236);
+
+    /* Header */
+    --header-background-color: rgb(95, 95, 95);
+    --searchbar-background-color: rgb(216, 216, 216);
+    --header-navbutton-outline-color: rgb(117, 117, 117);
+}
+
+.dark-mode {
+    /* General */
+    --site-background-color: rgb(125, 125, 125);
+    --text-color: rgb(12, 12, 12);
+    --dropdown-background-color: rgb(211, 211, 211);
+
+    /* Focus */
+    --focus-color: #a54319;
+    --focus-color-2: #a04f19d2;
+
+    /* Buttons */
+    --button-color-1: rgb(140, 140, 140);
+    --button-color-2: rgb(160, 160, 160);
+    --button-color-3: rgb(120, 120, 120);
+    --button-color-4: rgb(85, 85, 85);
+
+    --button-color-focus-1: rgb(115, 115, 115);
+    --button-color-focus-2: rgb(140, 140, 140);
+    --button-color-focus-3: rgb(105, 105, 105);
+    --button-color-focus-4: rgb(75, 75, 75);
+
+    --button-color-active-1: rgb(90, 90, 90);
+    --button-color-active-2: rgb(120, 120, 120);
+    --button-color-active-3: rgb(85, 85, 85);
+    --button-color-active-4: rgb(60, 60, 60);
+    
+    /* Panels */
+    --panel-background-1: rgb(135, 135, 135);
+    --panel-background-2: rgb(175, 175, 175);
+    --panel-background-3: rgb(155, 155, 155);
+    --panel-background-4: rgb(105, 105, 105);
+
+    --panel-background-border-1: rgb(62, 62, 62);
+    --panel-background-border-2: rgba(135, 135, 135, 0.7);
+    --panel-background-border-3: rgb(75, 75, 75);
+
+    --panel-outline-color-1: black;
+
+    /* Seperators */
+    --seperator-color-1: rgb(87, 87, 87);
+    --seperator-color-2: black;
+
+    /* Images */
+    --image-background-color: rgb(200, 200, 200);
+
+    /* Header */
+    --header-background-color: rgb(60, 60, 60);
+    --searchbar-background-color: rgb(162, 162, 162);
+    --header-navbutton-outline-color: rgb(82, 82, 82);
 }

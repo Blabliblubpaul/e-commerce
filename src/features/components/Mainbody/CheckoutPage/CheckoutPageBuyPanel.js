@@ -21,12 +21,12 @@ export default function CheckoutPageBuyPanel({items, fromCart, setItems}) {
     
         items.forEach(x => price += x.item.props.price * x.quantity);
     
-        return price
+        return Math.round(price * 100) / 100
     }
 
     return (
         <div id="checkoutPageBuyPanel">
-            <h1 id="checkoutPageBuyPanelPrice">{calculatePrice(items)}</h1>
+            <h1 id="checkoutPageBuyPanelPrice">{calculatePrice(items) + "$"}</h1>
             <button id="checkoutPageBuyPanelBuyButton" onClick={buy}>Buy</button>
             <CreateBoughtLabel bought={bought}/>
         </div>

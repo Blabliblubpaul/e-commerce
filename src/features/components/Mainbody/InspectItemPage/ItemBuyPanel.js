@@ -10,7 +10,7 @@ export default function ItemBuyPanel({item, setShowCartMessage, setAddedItem}) {
 
     const navigate = useNavigate()
 
-    function setAndBeautifyQuantity(target) {
+    function setQuantityValue(target) {
         setQuantity(target.value)
     }
 
@@ -19,8 +19,8 @@ export default function ItemBuyPanel({item, setShowCartMessage, setAddedItem}) {
             <h2 id="itemBuyPanelHeader">{item.props.price + "$"}</h2>
             <div id="itemAmountInput">
                 <h3 id="itemAmountInputText">Quantity:</h3>
-                <select id="itemAmountInputField"onChange={(x) => setAndBeautifyQuantity(x.target)}>
-                    {CreateAmountValues(item)}
+                <select id="itemAmountInputField" onChange={(x) => setQuantityValue(x.target)}>
+                    {CreateQuantityValues(item)}
                 </select>
             </div>
             <CreateCartButton isInCart={isInCart} item={item} quantity={quantity} setShowCartMessage={setShowCartMessage} setAddedItem={setAddedItem}/>
@@ -46,7 +46,7 @@ function CreateCartButton({isInCart, item, quantity, setShowCartMessage, setAdde
     }
 }
 
-function CreateAmountValues(item) {
+function CreateQuantityValues(item) {
     let max = item.max_buy <= item.in_stock ? item.max_buy : item.in_stock
 
     let options = []

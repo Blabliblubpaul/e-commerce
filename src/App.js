@@ -16,8 +16,7 @@ export default function App() {
             <Route path="/inspect" Component={InspectItemPage}/>
             <Route path="/cart" Component={CartPage}/>
             <Route path="/checkout" Component={CheckoutPage}/>
-            <Route path="/options" Component={OptionsPage}/>
-            <Route path="*" element={<h1>404!</h1>}/>
+            <Route path="*" element={<h1>404 Page not found</h1>}/>
         </Route>
       </Routes>
     </Router>

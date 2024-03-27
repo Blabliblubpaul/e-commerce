@@ -6,11 +6,11 @@ import { remove } from "../../../slices/cartSlice"
 import { items } from "../../../Items"
 
 import CheckoutPageBuyPanel from "./CheckoutPageBuyPanel"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function CheckoutPage() {
     const cartItems = useSelector(state => state.cart.items)
-    
+    console.log("changed!")
     let [searchParams, setSearchParams] = useSearchParams()
     let fromCart = !searchParams.has("item")
     
@@ -37,6 +37,10 @@ export default function CheckoutPage() {
 
         return copy_items
     }
+
+    useEffect(() => {
+        setItems_(GenItems())
+    }, [cartItems])
 
     return (
         <div id="checkoutPage">

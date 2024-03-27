@@ -13,7 +13,7 @@ export function calculateCartPrice() {
         price += calculateItemPrice(x)
     })
 
-    return price
+    return Math.round(price * 100) / 100
 }
 
 function calculateItemPrice(cartItem) {

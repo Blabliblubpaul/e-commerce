@@ -9,7 +9,7 @@ export default function() {
 
     return (
         <div>
-            <h1>Your Cart:</h1>
+            <h1 id="cartPageHeader">Your Cart:</h1>
             <div id="CartPage">
                 <div id="items">
                     <CreateCartItems items={items}/>

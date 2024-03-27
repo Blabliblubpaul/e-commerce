@@ -25,7 +25,7 @@ function ItemProps({id, name, props, isInCart}) {
             <Link className="shopItem-header" to={"/inspect?item=" + id}>{name}</Link>
             <p className="shopItemRating">{"Rating: " + props.rating}</p>
             <p className="shopItemDescription">{props.short_description}</p>
-            <p className="shopItemPrice">{props.price}</p>
+            <p className="shopItemPrice">{props.price + "$"}</p>
             <CartOptions id={id} isInCart={isInCart}/>
         </div>
     )
